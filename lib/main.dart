@@ -26,7 +26,7 @@ class TodoListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('リスト一覧'),
+        title: const Text('Todo List'),
       ),
       body: ListView(children: const <Widget>[
         Card(child: ListTile(title: Text('ニンジンを買う'))),
@@ -51,10 +51,35 @@ class TodoAddPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-      body: Center(
-          child: TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text('リスト追加画面(クリックで戻る)')),
+        appBar: AppBar(
+          title: const Text('Add Todo'),
+        ),
+        body: Container(
+            padding: const EdgeInsets.all(64),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const TextField(),
+                const SizedBox(height: 8),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () => {},
+                    child: const Text(
+                      'Add Todo',
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                SizedBox(
+                    width: double.infinity,
+                    child: TextButton(
+                      onPressed: () => {Navigator.of(context).pop()},
+                      child: const Text('Cancel',
+                          style: TextStyle(color: Colors.black)),
+                    )),
+              ],
+            )
         ),
       );
 }
